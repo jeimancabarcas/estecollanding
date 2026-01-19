@@ -3,27 +3,6 @@
   display: block;
 }
 
-/* Animación de entrada del modal */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 /* Asegurar que el modal ocupe toda la pantalla */
 .image-modal {
   position: fixed !important;
@@ -34,6 +13,24 @@
   width: 100vw !important;
   height: 100vh !important;
   z-index: 10000 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Contenedor interno del modal */
+.modal-content {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* Asegurar que la imagen se muestre correctamente en pantalla completa */
@@ -44,4 +41,66 @@
   height: auto !important;
   object-fit: contain !important;
   display: block !important;
+  margin: auto !important;
+}
+
+/* Botón cerrar */
+.modal-close-btn {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  color: white !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: none !important;
+  padding: 0.5rem !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+  transition: background-color 0.2s !important;
+}
+
+.modal-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: #d1d5db !important;
+}
+
+/* Botones de navegación */
+.modal-nav-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.75rem !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+  transition: background-color 0.2s !important;
+}
+
+.modal-nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.modal-nav-left {
+  left: 1rem !important;
+}
+
+.modal-nav-right {
+  right: 1rem !important;
+}
+
+/* Indicador de imagen */
+.modal-indicator {
+  position: absolute !important;
+  bottom: 1rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.875rem !important;
+  z-index: 10001 !important;
 }

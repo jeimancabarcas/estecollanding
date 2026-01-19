@@ -74,14 +74,14 @@
         <!-- Modal de imagen -->
         @if (selectedImage()) {
           <div 
-            class="image-modal fixed inset-0 z-[10000] bg-black/95 flex items-center justify-center p-4"
+            class="image-modal"
             (click)="closeImage()"
           >
-            <div class="relative w-full h-full flex items-center justify-center" (click)="$event.stopPropagation()">
+            <div class="modal-content" (click)="$event.stopPropagation()">
               <!-- Botón cerrar -->
               <button
                 (click)="closeImage()"
-                class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-30 bg-black/50 hover:bg-black/70 p-2 rounded-full backdrop-blur-sm"
+                class="modal-close-btn"
                 aria-label="Cerrar"
               >
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,13 +93,13 @@
               <img 
                 [src]="selectedImage()!" 
                 alt="Operación ESTECOL"
-                class="modal-image max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain"
+                class="modal-image"
               />
               
               <!-- Botones navegación -->
               <button
                 (click)="previousImage(); $event.stopPropagation()"
-                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-30"
+                class="modal-nav-btn modal-nav-left"
                 aria-label="Imagen anterior"
               >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@
               
               <button
                 (click)="nextImage(); $event.stopPropagation()"
-                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-30"
+                class="modal-nav-btn modal-nav-right"
                 aria-label="Imagen siguiente"
               >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@
               </button>
               
               <!-- Indicador de imagen -->
-              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full backdrop-blur-sm text-sm z-30">
+              <div class="modal-indicator">
                 {{ galleryImages().indexOf(selectedImage()!) + 1 }} / {{ galleryImages().length }}
               </div>
             </div>
