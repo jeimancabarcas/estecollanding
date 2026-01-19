@@ -1,0 +1,80 @@
+<section id="hero" class="relative min-h-screen flex items-center justify-center bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Contenido centrado -->
+      <div class="flex flex-col items-center justify-center text-center min-h-screen py-20">
+        
+        <!-- Texto y contenido -->
+        <div class="max-w-4xl mx-auto space-y-8" data-scroll-animate="fade-up" data-scroll-delay="0">
+          <!-- Badge minimalista -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full border border-blue-200/50">
+            <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+            <span class="text-sm font-medium text-blue-700">Operación 24/7</span>
+          </div>
+
+          <!-- Título principal -->
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light text-gray-900 leading-tight tracking-tight">
+            <span class="block font-normal">{{ title() }}</span>
+            <span class="block text-gray-500 font-light mt-2 text-3xl sm:text-4xl lg:text-5xl">
+              {{ subtitle() }}
+            </span>
+          </h1>
+
+          <!-- Descripción -->
+          <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            {{ tagline() }}
+          </p>
+
+        <!-- Botones CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <button 
+            (click)="scrollToServices()"
+            class="group px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+          >
+            <span class="flex items-center gap-2">
+              Nuestros Servicios
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+          </button>
+          
+          <button 
+            (click)="scrollToContact()"
+            class="px-8 py-3.5 bg-white hover:bg-gray-50 text-gray-900 font-medium rounded-lg border-2 border-gray-200 hover:border-blue-300 transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            Solicitar Cotización
+          </button>
+        </div>
+
+          <!-- Estadísticas minimalistas -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12">
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl font-light text-gray-900 mb-1">12+</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider">Años Experiencia</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl font-light text-gray-900 mb-1">24/7</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider">Disponibilidad</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl font-light text-gray-900 mb-1">100%</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider">Cobertura Nacional</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl font-light text-gray-900 mb-1">PESV</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wider">Certificado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator minimalista -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+<section id="services" class="py-24 bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-20" data-scroll-animate="fade-up">
+      <h2 class="text-4xl sm:text-5xl font-light text-gray-900 mb-4 tracking-tight">
+        Nuestros <span class="font-normal">Servicios</span>
+      </h2>
+      <p class="text-lg text-gray-400 max-w-2xl mx-auto font-light">
+        Soluciones especializadas para el transporte seguro de cargas especiales
+      </p>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" data-scroll-animate="stagger">
+      @for (service of services(); track service.id) {
+        <div class="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <!-- Imagen del servicio -->
+          @if (service.image) {
+            <div class="relative h-48 overflow-hidden bg-gray-100 group">
+              <img 
+                [src]="service.image" 
+                [alt]="service.title"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+            </div>
+          }
+          
+          <div class="p-8">
+          <!-- Icono -->
+          <div class="mb-6 inline-flex items-center justify-center w-16 h-16 bg-gray-800 rounded-lg shadow-lg">
+            @switch (service.icon) {
+              @case ('truck') {
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              }
+              @case ('warning') {
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              }
+              @case ('medical') {
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              }
+              @case ('route') {
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              }
+            }
+          </div>
+
+          <!-- Contenido -->
+          <h3 class="text-2xl font-medium text-gray-900 mb-3">{{ service.title }}</h3>
+          <p class="text-gray-400 mb-6 text-sm font-light">{{ service.description }}</p>
+
+          <!-- Lista de características -->
+          <ul class="space-y-3">
+            @for (feature of service.features; track feature) {
+              <li class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-gray-500 text-sm">{{ feature }}</span>
+              </li>
+            }
+          </ul>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Información adicional -->
+    <div class="mt-20 text-center" data-scroll-animate="fade-up" data-scroll-delay="100">
+      <p class="text-gray-400 mb-4 font-light">
+        ¿Necesitas una solución personalizada? Contáctanos y diseñaremos el servicio perfecto para tu operación.
+      </p>
+      <button 
+        (click)="scrollToContact()"
+        class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 text-sm shadow-lg hover:shadow-xl"
+      >
+        Solicitar Cotización
+      </button>
+    </div>
+  </div>
+</section>

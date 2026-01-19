@@ -1,0 +1,174 @@
+<section id="about" class="py-24 bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-20" data-scroll-animate="fade-up">
+        <h2 class="text-4xl sm:text-5xl font-light text-gray-900 mb-4 tracking-tight">
+          Quiénes <span class="font-normal">Somos</span>
+        </h2>
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto font-light">
+          Más de 12 años de experiencia en seguridad vial y acompañamiento de cargas especiales
+        </p>
+      </div>
+
+      <!-- Misión y Visión -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <!-- Misión -->
+        <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow" data-scroll-animate="fade-up" data-scroll-delay="100">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-medium text-gray-900">Misión</h3>
+          </div>
+          <p class="text-gray-500 leading-relaxed font-light">
+            {{ mission() }}
+          </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow" data-scroll-animate="fade-up" data-scroll-delay="200">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-medium text-gray-900">Visión</h3>
+          </div>
+          <p class="text-gray-500 leading-relaxed font-light">
+            {{ vision() }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Galería de imágenes -->
+      <div class="mb-20" data-scroll-animate="fade-up">
+        <h3 class="text-3xl font-light text-gray-900 mb-12 text-center">
+          Nuestra <span class="font-normal">Operación</span>
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-scroll-animate="stagger">
+          @for (image of galleryImages(); track image) {
+            <div 
+              (click)="openImage(image)"
+              class="group relative overflow-hidden rounded-xl aspect-square bg-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+            >
+              <img 
+                [src]="image" 
+                [alt]="'Operación ESTECOL ' + $index"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                </svg>
+              </div>
+            </div>
+          }
+        </div>
+        
+        <!-- Modal de imagen -->
+        @if (selectedImage()) {
+          <div 
+            class="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4"
+            (click)="closeImage()"
+          >
+            <div class="relative w-full h-full flex items-center justify-center max-w-[95vw] max-h-[95vh]" (click)="$event.stopPropagation()">
+              <!-- Botón cerrar -->
+              <button
+                (click)="closeImage()"
+                class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-20 bg-black/50 hover:bg-black/70 p-2 rounded-full backdrop-blur-sm"
+                aria-label="Cerrar"
+              >
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
+              <!-- Imagen -->
+              <img 
+                [src]="selectedImage()!" 
+                alt="Operación ESTECOL"
+                class="max-w-full max-h-full w-auto h-auto object-contain"
+              />
+              
+              <!-- Botones navegación -->
+              <button
+                (click)="previousImage(); $event.stopPropagation()"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-20"
+                aria-label="Imagen anterior"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <button
+                (click)="nextImage(); $event.stopPropagation()"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-20"
+                aria-label="Imagen siguiente"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              
+              <!-- Indicador de imagen -->
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full backdrop-blur-sm text-sm z-20">
+                {{ galleryImages().indexOf(selectedImage()!) + 1 }} / {{ galleryImages().length }}
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Valores -->
+      <div data-scroll-animate="fade-up">
+        <h3 class="text-3xl font-light text-gray-900 mb-12 text-center">
+          Nuestros <span class="font-normal">Valores</span>
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6" data-scroll-animate="stagger">
+          @for (value of values(); track value.title) {
+            <div class="bg-white rounded-xl p-6 border border-gray-100 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                @switch (value.icon) {
+                  @case ('shield') {
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  }
+                  @case ('star') {
+                    <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  }
+                  @case ('heart') {
+                    <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  }
+                  @case ('target') {
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  }
+                  @case ('users') {
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                  }
+                }
+              </div>
+              <h4 class="text-lg font-medium text-gray-900 mb-2">{{ value.title }}</h4>
+              <p class="text-sm text-gray-400 font-light">{{ value.description }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

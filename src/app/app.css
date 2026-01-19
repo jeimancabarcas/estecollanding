@@ -1,0 +1,48 @@
+/* Estilos globales de la aplicación */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Asegurar que el contenedor Three.js no interfiera con el contenido */
+#threeContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Estilos base para animaciones de scroll con GSAP */
+[data-scroll-animate] {
+  will-change: opacity, transform;
+}
+
+/* Prevenir flash de contenido no estilizado (FOUC) */
+[data-scroll-animate="fade-up"],
+[data-scroll-animate="fade-in"],
+[data-scroll-animate="slide-left"],
+[data-scroll-animate="slide-right"],
+[data-scroll-animate="scale"] {
+  opacity: 0;
+}
