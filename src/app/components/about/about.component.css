@@ -12,13 +12,14 @@
   bottom: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 10000 !important;
+  z-index: 99999 !important;
   margin: 0 !important;
   padding: 0 !important;
   background-color: rgba(0, 0, 0, 0.95) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  overflow: hidden !important;
 }
 
 /* Contenedor interno del modal */
