@@ -1,17 +1,3 @@
-/* Estilos para el contenedor del logo animado */
-#logoContainer {
-  position: relative;
-  display: inline-block;
-}
-
-#logoContainer canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 /* Prevenir scroll horizontal */
 nav {
   max-width: 100vw;

@@ -137,29 +137,21 @@ export class NavbarLogoAnimationService {
 
     const logoMaterial = this.logoMesh.material as THREE.MeshBasicMaterial;
     
-    // Inicializar en escala pequeña y rotado
-    this.logoGroup.scale.set(0.5, 0.5, 1);
-    this.logoGroup.rotation.y = -0.3;
+    // Inicializar en escala normal (sin hacer pequeño) y rotado
+    this.logoGroup.scale.set(1, 1, 1);
+    this.logoGroup.rotation.y = -0.2;
     logoMaterial.opacity = 0;
 
-    // Animación de entrada
-    gsap.to(this.logoGroup.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-      duration: 1,
-      ease: 'back.out(1.7)'
-    });
-
+    // Animación de entrada más rápida y sutil
     gsap.to(this.logoGroup.rotation, {
       y: 0,
-      duration: 1,
+      duration: 0.6,
       ease: 'power2.out'
     });
 
     gsap.to(logoMaterial, {
       opacity: 1,
-      duration: 0.8,
+      duration: 0.5,
       ease: 'power2.out'
     });
   }
@@ -217,11 +209,25 @@ export class NavbarLogoAnimationService {
 
     this.time += 0.01;
 
-    // Efecto de corazón (pulso rítmico)
-    const heartbeat = Math.abs(Math.sin(this.time * 2.5)) * 0.1 + 1;
+    // Efecto de corazón (pulso rítmico más visible)
+    // Usar una función que simule un latido más realista (dos pulsos seguidos)
+    const heartbeatPhase = this.time * 2.5;
+    let heartbeat = 1;
     
-    // Aplicar pulso al logo
-    this.logoMesh.scale.set(heartbeat, heartbeat, 1);
+    // Simular latido doble (como un corazón real)
+    if (Math.sin(heartbeatPhase) > 0) {
+      // Primer pulso más fuerte
+      heartbeat = 1 + Math.sin(heartbeatPhase) * 0.15;
+    } else {
+      // Segundo pulso más suave
+      heartbeat = 1 + Math.abs(Math.sin(heartbeatPhase)) * 0.08;
+    }
+    
+    // Asegurar que nunca sea menor que 1 (para que no se vea pequeño)
+    heartbeat = Math.max(heartbeat, 1);
+    
+    // Aplicar pulso al grupo completo para mejor visibilidad
+    this.logoGroup.scale.set(heartbeat, heartbeat, 1);
 
     // Rotación suave basada en mouse (solo en hover)
     if (this.isHovered) {

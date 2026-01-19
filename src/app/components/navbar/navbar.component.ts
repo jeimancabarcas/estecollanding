@@ -1,6 +1,5 @@
-import { Component, signal, HostListener, ViewChild, ElementRef, AfterViewInit, OnDestroy, afterNextRender } from '@angular/core';
+import { Component, signal, HostListener, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarLogoAnimationService } from '../../services/navbar-logo-animation.service';
 import { gsap } from 'gsap';
 
 /**
@@ -15,8 +14,6 @@ import { gsap } from 'gsap';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('logoContainer', { static: false }) logoContainer!: ElementRef<HTMLDivElement>;
-  @ViewChild('logoImage', { static: false }) logoImage!: ElementRef<HTMLImageElement>;
   @ViewChild('mobileMenu', { static: false }) mobileMenu!: ElementRef<HTMLDivElement>;
   @ViewChild('mobileMenuOverlay', { static: false }) mobileMenuOverlay!: ElementRef<HTMLDivElement>;
 
@@ -25,41 +22,10 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   
   private menuAnimation: gsap.core.Timeline | null = null;
 
-  constructor(private logoAnimation: NavbarLogoAnimationService) {
-    afterNextRender(() => {
-      this.initializeAnimation();
-    });
-  }
-
   ngAfterViewInit(): void {
-    // El afterNextRender ya maneja la inicialización
     // Prevenir scroll horizontal
     document.body.style.overflowX = 'hidden';
     document.documentElement.style.overflowX = 'hidden';
-  }
-
-  /**
-   * Inicializa la animación del logo
-   */
-  private initializeAnimation(): void {
-    if (this.logoContainer?.nativeElement && this.logoImage?.nativeElement) {
-      this.logoAnimation.initializeAnimation(
-        this.logoContainer.nativeElement,
-        this.logoImage.nativeElement
-      );
-
-      // Manejar resize
-      window.addEventListener('resize', this.handleResize.bind(this));
-    }
-  }
-
-  /**
-   * Maneja el resize
-   */
-  private handleResize(): void {
-    if (this.logoImage?.nativeElement) {
-      this.logoAnimation.handleResize(this.logoImage.nativeElement);
-    }
   }
 
   @HostListener('window:scroll', [])
@@ -209,7 +175,9 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.logoAnimation.cleanup();
-    window.removeEventListener('resize', this.handleResize.bind(this));
+    // Limpiar animación del menú si existe
+    if (this.menuAnimation) {
+      this.menuAnimation.kill();
+    }
   }
 }
