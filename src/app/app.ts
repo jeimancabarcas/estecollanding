@@ -9,6 +9,7 @@ import { OperationalModelComponent } from './components/operational-model/operat
 import { ComplianceComponent } from './components/compliance/compliance.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { WhatsAppButtonComponent } from './components/whatsapp-button/whatsapp-button.component';
 import { ScrollAnimationService } from './services/scroll-animation.service';
 
 /**
@@ -27,7 +28,8 @@ import { ScrollAnimationService } from './services/scroll-animation.service';
     OperationalModelComponent,
     ComplianceComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    WhatsAppButtonComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

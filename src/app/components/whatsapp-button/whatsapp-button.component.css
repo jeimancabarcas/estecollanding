@@ -1,0 +1,38 @@
+.whatsapp-button {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Efecto de pulso más sutil */
+.whatsapp-button .animate-ping {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Responsive: ajustar tamaño en móviles */
+@media (max-width: 640px) {
+  .whatsapp-button {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.875rem;
+  }
+  
+  .whatsapp-button svg {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
