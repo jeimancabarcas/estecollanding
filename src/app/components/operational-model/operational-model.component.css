@@ -1,1 +1,58 @@
 /* Estilos específicos del componente si son necesarios */
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  margin-bottom: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+  width: calc(100% - 2rem);
+  max-width: 320px;
+}
+
+.group:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-content {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  position: relative;
+  font-weight: 300;
+}
+
+.tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1f2937;
+}
+
+/* Responsive: ajustar tooltip en móviles */
+@media (max-width: 768px) {
+  .tooltip {
+    width: calc(100% - 1rem);
+    max-width: 280px;
+  }
+  
+  .tooltip-content {
+    font-size: 0.8125rem;
+    padding: 10px 14px;
+  }
+}

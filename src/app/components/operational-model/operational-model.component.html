@@ -14,10 +14,10 @@
       <!-- Pilares del Modelo OP -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" data-scroll-animate="stagger">
         @for (pillar of pillars(); track pillar.number) {
-          <div class="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative">
+          <div class="bg-white rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative group" style="overflow: visible; z-index: 1;">
             <!-- Imagen del pilar -->
             @if (pillar.image) {
-              <div class="relative h-48 overflow-hidden bg-gray-100">
+              <div class="relative h-48 overflow-hidden bg-gray-100 rounded-t-xl">
                 <img 
                   [src]="pillar.image" 
                   [alt]="pillar.title"
@@ -44,6 +44,15 @@
                 {{ pillar.description }}
               </p>
             </div>
+
+            <!-- Tooltip -->
+            @if (pillar.tooltip) {
+              <div class="tooltip">
+                <div class="tooltip-content">
+                  {{ pillar.tooltip }}
+                </div>
+              </div>
+            }
           </div>
         }
       </div>

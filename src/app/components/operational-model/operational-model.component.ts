@@ -9,6 +9,7 @@ interface Pillar {
   title: string;
   description: string;
   image?: string;
+  tooltip?: string;
 }
 
 /**
@@ -29,31 +30,36 @@ export class OperationalModelComponent implements AfterViewInit, OnDestroy {
       number: '01',
       title: 'Planificación de Ruta',
       description: 'Análisis detallado del trayecto, identificación de riesgos y diseño de estrategias de seguridad personalizadas',
-      image: '/images/d6adb5b0-8915-4d73-a0e3-d83857c98073.jpg'
+      image: '/images/d6adb5b0-8915-4d73-a0e3-d83857c98073.jpg',
+      tooltip: 'Análisis previo del trayecto para identificar riesgos, definir rutas seguras y establecer medidas preventivas según el tipo de carga y la normativa vigente.'
     },
     {
       number: '02',
       title: 'Verificación de Condiciones',
       description: 'Inspección exhaustiva de vehículos, cargas y documentación antes del inicio de la operación',
-      image: '/images/dc3558e0-ad27-4d55-a8cd-a14316459896.jpg'
+      image: '/images/dc3558e0-ad27-4d55-a8cd-a14316459896.jpg',
+      tooltip: 'Evaluación inicial del conductor, vehículo, carga y entorno, asegurando que la operación inicie bajo condiciones óptimas de seguridad.'
     },
     {
       number: '03',
       title: 'Acompañamiento en Tiempo Real',
       description: 'Monitoreo continuo durante todo el trayecto con comunicación constante y respuesta inmediata',
-      image: '/images/e32f2994-af97-4be2-88c0-3b30564746cc.jpg'
+      image: '/images/e32f2994-af97-4be2-88c0-3b30564746cc.jpg',
+      tooltip: 'Seguimiento permanente durante el recorrido, permitiendo control operativo, reacción inmediata ante novedades y reducción de riesgos en ruta.'
     },
     {
       number: '04',
       title: 'Informes de Operación',
       description: 'Documentación completa y detallada de cada operación para trazabilidad y mejora continua',
-      image: '/images/edb2803d-3618-4c2c-b850-f919b5eed660.jpg'
+      image: '/images/edb2803d-3618-4c2c-b850-f919b5eed660.jpg',
+      tooltip: 'Registro documentado de la operación, con trazabilidad, novedades, tiempos y evidencias para control interno y cumplimiento normativo.'
     },
     {
       number: '05',
       title: 'Retroalimentación',
       description: 'Análisis post-operación para identificar oportunidades de mejora y optimización de procesos',
-      image: '/images/8e5555f6-f3d3-4cf5-bd0e-24683651ec38.jpg'
+      image: '/images/8e5555f6-f3d3-4cf5-bd0e-24683651ec38.jpg',
+      tooltip: 'Análisis posterior de cada servicio para optimizar procesos, fortalecer la seguridad y mejorar la eficiencia operativa del cliente.'
     }
   ]);
 
