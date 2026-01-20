@@ -4,7 +4,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
 import { FeaturesComponent } from './components/features/features.component';
-import { ServicesComponent } from './components/services/services.component';
 import { OperationalModelComponent } from './components/operational-model/operational-model.component';
 import { ComplianceComponent } from './components/compliance/compliance.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -24,7 +23,6 @@ import { ScrollAnimationService } from './services/scroll-animation.service';
     HeroComponent,
     AboutComponent,
     FeaturesComponent,
-    ServicesComponent,
     OperationalModelComponent,
     ComplianceComponent,
     ContactComponent,

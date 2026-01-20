@@ -1,4 +1,4 @@
-<section id="features" class="py-24 bg-white">
+<section id="features" class="py-24 bg-transparent">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-20" data-scroll-animate="fade-up">
@@ -13,7 +13,10 @@
     <!-- Grid de servicios -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-scroll-animate="stagger">
       @for (service of services(); track service.title) {
-        <div class="group relative bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+        <div 
+          (click)="openServiceModal(service)"
+          class="group relative bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+        >
           <!-- Imagen de fondo -->
           @if (service.image) {
             <div class="relative h-40 overflow-hidden bg-gray-100">
@@ -79,4 +82,57 @@
       }
     </div>
   </div>
+
+  <!-- Modal de servicio -->
+  @if (selectedService() && selectedService()!.modalContent) {
+    <div 
+      class="service-modal"
+      (click)="closeServiceModal()"
+    >
+      <div class="service-modal-content" (click)="$event.stopPropagation()">
+        <!-- Botón cerrar -->
+        <button
+          (click)="closeServiceModal()"
+          class="service-modal-close-btn"
+          aria-label="Cerrar"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        
+        <!-- Contenido del modal -->
+        <div class="service-modal-body">
+          <!-- Título -->
+          <h2 class="service-modal-title">{{ selectedService()!.title }}</h2>
+          
+          <!-- ¿En qué consiste el servicio? -->
+          <div class="service-modal-section">
+            <h3 class="service-modal-section-title">¿En qué consiste el servicio?</h3>
+            <p class="service-modal-text">{{ selectedService()!.modalContent!.description }}</p>
+          </div>
+          
+          <!-- Marco normativo aplicable -->
+          <div class="service-modal-section">
+            <h3 class="service-modal-section-title">Marco normativo aplicable</h3>
+            <ul class="service-modal-list">
+              @for (normative of selectedService()!.modalContent!.normative; track normative) {
+                <li class="service-modal-list-item">{{ normative }}</li>
+              }
+            </ul>
+          </div>
+          
+          <!-- Valor ESTECOL -->
+          <div class="service-modal-section">
+            <h3 class="service-modal-section-title">Valor ESTECOL</h3>
+            <ul class="service-modal-list">
+              @for (value of selectedService()!.modalContent!.value; track value) {
+                <li class="service-modal-list-item">{{ value }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
 </section>

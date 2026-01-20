@@ -35,10 +35,10 @@ export class FooterComponent {
     {
       title: 'Servicios',
       links: [
-        { title: 'Carga Extradimensionada', href: '#services' },
-        { title: 'Cargas Peligrosas', href: '#services' },
-        { title: 'Acompañamiento Médico', href: '#services' },
-        { title: 'Gestión de Rutas', href: '#services' }
+        { title: 'Carga Extradimensionada', href: '#features' },
+        { title: 'Cargas críticas', href: '#features' },
+        { title: 'Asistencia Técnico en Salud', href: '#features' },
+        { title: 'Gestión de Rutas', href: '#features' }
       ]
     },
     {
@@ -53,10 +53,11 @@ export class FooterComponent {
     {
       title: 'Cumplimiento',
       links: [
-        { title: 'PESV', href: '#compliance' },
-        { title: 'Ley 769 de 2002', href: '#compliance' },
-        { title: 'Resolución 1565', href: '#compliance' },
-        { title: 'Decreto 1609', href: '#compliance' }
+        { title: 'PESV', href: 'https://normativa.colpensiones.gov.co/compilacion/docs/decreto_1609_2002.htm?utm_source=chatgpt.com' },
+        { title: 'Ley 769 de 2002', href: 'https://www.runt.gov.co/sites/default/files/normas/Ley_769_2002.pdf?utm_source=chatgpt.com' },
+        { title: 'Resolución 1565', href: 'https://www.cancilleria.gov.co/sites/default/files/Normograma/docs/pdf/resolucion_mintransporte_1565_2014.pdf?utm_source=chatgpt.com' },
+        { title: 'Decreto 1609', href: 'https://normativa.colpensiones.gov.co/compilacion/docs/decreto_1609_2002.htm?utm_source=chatgpt.com' },
+        { title: 'Decreto 1072 de 2015', href: 'https://www.reincorporacion.gov.co/es/agencia/Documentos%20Normatividad%20Complementaria/Decreto%201072%20de%202015.pdf?utm_source=chatgpt.com' }
       ]
     },
     {

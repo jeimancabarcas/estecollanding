@@ -155,10 +155,39 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
    * Scroll suave a una sección
    */
   scrollToSection(sectionId: string): void {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    // Si el menú móvil está abierto, cerrarlo primero y restaurar el scroll
+    if (this.isMobileMenuOpen()) {
+      const scrollY = document.body.style.top;
+      
+      // Restaurar scroll del body antes de hacer scroll
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflowY = '';
+      document.body.style.width = '';
+      
+      // Restaurar la posición de scroll si existe
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+      
+      // Cerrar el menú
       this.closeMobileMenu();
+      
+      // Esperar un momento para que el menú se cierre antes de hacer scroll
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Si el menú no está abierto, hacer scroll directamente
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 

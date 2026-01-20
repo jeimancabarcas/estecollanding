@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class WhatsAppButtonComponent {
   // Número de WhatsApp (formato internacional sin +)
   // Ejemplo: 573001234567 para Colombia
-  protected readonly whatsappNumber = '573001234567';
+  protected readonly whatsappNumber = '573103385519';
   
   // Mensaje predeterminado
   protected readonly defaultMessage = 'Hola, me interesa conocer más sobre los servicios de ESTECOL.';

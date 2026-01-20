@@ -15,6 +15,8 @@
           @for (social of socialLinks(); track social.name) {
             <a 
               [href]="social.href"
+              [target]="social.href.startsWith('http') ? '_blank' : '_self'"
+              [rel]="social.href.startsWith('http') ? 'noopener noreferrer' : ''"
               class="w-9 h-9 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors duration-300"
               [attr.aria-label]="social.name"
             >
@@ -54,6 +56,8 @@
               <li>
                 <a 
                   [href]="link.href"
+                  [target]="link.href.startsWith('http') ? '_blank' : '_self'"
+                  [rel]="link.href.startsWith('http') ? 'noopener noreferrer' : ''"
                   class="text-gray-400 hover:text-white transition-colors duration-200 text-sm font-light"
                 >
                   {{ link.title }}

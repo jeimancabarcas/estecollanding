@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
@@ -22,7 +22,8 @@ interface Pillar {
   templateUrl: './operational-model.component.html',
   styleUrl: './operational-model.component.css'
 })
-export class OperationalModelComponent {
+export class OperationalModelComponent implements AfterViewInit, OnDestroy {
+  private elfsightScriptLoaded = false;
   protected readonly pillars = signal<Pillar[]>([
     {
       number: '01',
@@ -65,4 +66,19 @@ export class OperationalModelComponent {
       'Retorno'
     ]
   });
+
+  ngAfterViewInit(): void {
+    // Cargar el script de Elfsight si no está cargado
+    if (!this.elfsightScriptLoaded && !document.querySelector('script[src*="elfsightcdn.com"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://elfsightcdn.com/platform.js';
+      script.async = true;
+      document.head.appendChild(script);
+      this.elfsightScriptLoaded = true;
+    }
+  }
+
+  ngOnDestroy(): void {
+    // El script se mantiene en el head para que funcione en toda la aplicación
+  }
 }

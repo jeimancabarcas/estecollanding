@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EmailService } from '../../services/email.service';
 
 /**
  * Interfaz para el formulario de contacto
@@ -35,25 +36,39 @@ export class ContactComponent {
 
   protected readonly isSubmitting = signal(false);
   protected readonly isSubmitted = signal(false);
+  protected readonly errorMessage = signal<string | null>(null);
+
+  constructor(private emailService: EmailService) {}
 
   /**
    * Maneja el envío del formulario
    */
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     if (this.isSubmitting()) return;
 
     // Validación básica
     const currentForm = this.form();
     if (!currentForm.name || !currentForm.email || !currentForm.message) {
-      alert('Por favor completa todos los campos requeridos');
+      this.errorMessage.set('Por favor completa todos los campos requeridos');
+      setTimeout(() => this.errorMessage.set(null), 5000);
+      return;
+    }
+
+    // Validación de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(currentForm.email)) {
+      this.errorMessage.set('Por favor ingresa un email válido');
+      setTimeout(() => this.errorMessage.set(null), 5000);
       return;
     }
 
     this.isSubmitting.set(true);
+    this.errorMessage.set(null);
 
-    // Simulación de envío (en producción sería una llamada HTTP)
-    setTimeout(() => {
-      console.log('Formulario enviado:', currentForm);
+    try {
+      await this.emailService.sendContactEmail(currentForm);
+      
+      // Éxito
       this.isSubmitting.set(false);
       this.isSubmitted.set(true);
       
@@ -68,7 +83,16 @@ export class ContactComponent {
         });
         this.isSubmitted.set(false);
       }, 3000);
-    }, 1000);
+    } catch (error) {
+      // Error
+      console.error('Error al enviar el formulario:', error);
+      this.isSubmitting.set(false);
+      this.errorMessage.set(
+        error instanceof Error 
+          ? error.message 
+          : 'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente.'
+      );
+    }
   }
 
   /**

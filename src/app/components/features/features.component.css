@@ -1,1 +1,152 @@
-/* Estilos específicos del componente si son necesarios */
+/* Estilos para el modal de servicio */
+:host {
+  display: block;
+}
+
+/* Modal overlay */
+.service-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 99999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Contenedor del modal */
+.service-modal-content {
+  position: relative !important;
+  width: 90% !important;
+  max-width: 800px !important;
+  max-height: 90vh !important;
+  margin: 2rem auto !important;
+  padding: 0 !important;
+  background-color: #ffffff !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Botón cerrar */
+.service-modal-close-btn {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  z-index: 100000 !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  cursor: pointer !important;
+  color: #374151 !important;
+  transition: all 0.2s !important;
+}
+
+.service-modal-close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  color: #111827 !important;
+}
+
+/* Cuerpo del modal */
+.service-modal-body {
+  padding: 2.5rem !important;
+  padding-top: 3rem !important;
+}
+
+/* Título del modal */
+.service-modal-title {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  margin-bottom: 2rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Sección del modal */
+.service-modal-section {
+  margin-bottom: 2rem !important;
+}
+
+.service-modal-section:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Título de sección */
+.service-modal-section-title {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Texto del modal */
+.service-modal-text {
+  font-size: 0.9375rem !important;
+  line-height: 1.75 !important;
+  color: #4b5563 !important;
+  font-weight: 300 !important;
+}
+
+/* Lista del modal */
+.service-modal-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.service-modal-list-item {
+  position: relative !important;
+  padding-left: 1.5rem !important;
+  padding-bottom: 0.75rem !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.75 !important;
+  color: #4b5563 !important;
+  font-weight: 300 !important;
+}
+
+.service-modal-list-item::before {
+  content: '•' !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: #2563eb !important;
+  font-weight: bold !important;
+  font-size: 1.25rem !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .service-modal-content {
+    width: 95% !important;
+    margin: 1rem auto !important;
+    max-height: 95vh !important;
+  }
+  
+  .service-modal-body {
+    padding: 1.5rem !important;
+    padding-top: 2.5rem !important;
+  }
+  
+  .service-modal-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .service-modal-section-title {
+    font-size: 1.125rem !important;
+  }
+}

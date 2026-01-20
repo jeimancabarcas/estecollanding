@@ -18,10 +18,10 @@ export class HeroComponent {
   protected readonly tagline = signal('Más de 12 años protegiendo cargas especiales en las carreteras de Colombia');
 
   /**
-   * Scroll suave hacia la sección de servicios
+   * Scroll suave hacia la sección de servicios especializados
    */
   scrollToServices(): void {
-    const servicesSection = document.getElementById('services');
+    const servicesSection = document.getElementById('features');
     servicesSection?.scrollIntoView({ behavior: 'smooth' });
   }
 
