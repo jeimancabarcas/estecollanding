@@ -1,5 +1,21 @@
 .whatsapp-button {
   animation: float 3s ease-in-out infinite;
+  /* Asegurar que no cause scroll horizontal */
+  position: fixed !important;
+  right: 1.5rem !important;
+  bottom: 1.5rem !important;
+  box-sizing: border-box;
+  /* Asegurar que el botón no se salga del viewport */
+  max-width: min-content;
+  transform-origin: center;
+}
+
+/* En móviles, ajustar más el right */
+@media (max-width: 640px) {
+  .whatsapp-button {
+    right: 1rem !important;
+    bottom: 1rem !important;
+  }
 }
 
 @keyframes float {

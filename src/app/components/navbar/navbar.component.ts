@@ -76,8 +76,17 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
     const overlay = this.mobileMenuOverlay?.nativeElement;
 
     if (isOpen) {
-      // Bloquear scroll del body cuando el menú está abierto
-      document.body.style.overflow = 'hidden';
+      // Guardar la posición de scroll actual antes de bloquear
+      const scrollY = window.scrollY;
+      
+      // Bloquear scroll del body cuando el menú está abierto, manteniendo overflow-x hidden
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.overflowY = 'hidden';
+      document.body.style.overflowX = 'hidden';
+      document.body.style.width = '100%';
       
       // Mover el menú y overlay al body para que tengan su propio contexto de apilamiento
       if (menu.parentElement !== document.body) {
@@ -97,6 +106,8 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
       menu.style.setProperty('transform', 'translateX(0)', 'important');
       menu.style.setProperty('display', 'block', 'important');
       menu.style.setProperty('pointer-events', 'auto', 'important');
+      menu.style.setProperty('overflow-x', 'hidden', 'important');
+      menu.style.setProperty('max-width', '100vw', 'important');
       
       if (overlay) {
         overlay.style.setProperty('z-index', '999998', 'important');
@@ -108,10 +119,24 @@ export class NavbarComponent implements AfterViewInit, OnDestroy {
         overlay.style.setProperty('display', 'block', 'important');
         overlay.style.setProperty('pointer-events', 'auto', 'important');
         overlay.style.setProperty('opacity', '1', 'important');
+        overlay.style.setProperty('overflow-x', 'hidden', 'important');
+        overlay.style.setProperty('max-width', '100vw', 'important');
       }
     } else {
       // Restaurar scroll del body cuando el menú se cierra
-      document.body.style.overflow = '';
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflowY = '';
+      document.body.style.overflowX = 'hidden';
+      document.body.style.width = '';
+      
+      // Restaurar la posición de scroll
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
       
       // Ocultar instantáneamente
       menu.style.setProperty('display', 'none', 'important');
