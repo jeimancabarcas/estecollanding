@@ -43,7 +43,7 @@ export class ServicesComponent {
         'Coordinación con autoridades'
       ],
       icon: 'truck',
-      image: '/images/4754f521-0fd8-4e37-909a-07c004dd19e3.jpg',
+      image: '/servicios/cargas_extradimensionadas.jpeg',
       modalContent: {
         description: 'ESTECOL brinda acompañamiento vial especializado para el transporte de cargas extradimensionadas y extrapesadas, garantizando seguridad, control operativo y cumplimiento normativo durante toda la ruta. Nuestro servicio contempla análisis previo del trayecto, coordinación con autoridades, escoltas viales certificadas y control permanente de riesgos asociados a dimensiones, peso y maniobrabilidad de la carga.',
         normative: [
@@ -72,7 +72,7 @@ export class ServicesComponent {
         'Documentación completa'
       ],
       icon: 'warning',
-      image: '/images/53624248-3849-4eea-9fea-6f11db7687d6.jpg',
+      image: '/servicios/sustancias_criticas.jpeg',
       modalContent: {
         description: 'Acompañamiento especializado para el transporte de sustancias peligrosas, químicas, inflamables, tóxicas o de alto riesgo, asegurando el control del factor humano, el entorno y la carga. Incluye escoltas viales capacitadas, monitoreo constante y protocolos de reacción ante incidentes.',
         normative: [
@@ -101,7 +101,7 @@ export class ServicesComponent {
         'Soporte 24/7'
       ],
       icon: 'medical',
-      image: '/images/749f8913-58ab-4e90-9afc-07376bad67c9.jpg',
+      image: '/servicios/asistencia_medica.jpeg',
       modalContent: {
         description: 'ESTECOL integra un acompañante médico técnico para verificar y controlar la aptitud física y mental del conductor antes y durante la operación. Este servicio incluye pruebas de sustancias psicoactivas, evaluación de signos vitales y seguimiento preventivo en rutas críticas.',
         normative: [
@@ -129,7 +129,7 @@ export class ServicesComponent {
         'Trazabilidad total'
       ],
       icon: 'route',
-      image: '/images/798909f4-d1a7-4a88-9450-9bc502b18c5c.jpg',
+      image: '/servicios/gestion_de_rutas_logisticas.jpeg',
       modalContent: {
         description: 'Planeación, análisis y control integral de rutas logísticas, enfocada en seguridad, eficiencia y cumplimiento normativo. Incluye identificación de puntos críticos, rutas alternas, evaluación de riesgos y coordinación operativa antes, durante y después del viaje.',
         normative: [
@@ -157,7 +157,7 @@ export class ServicesComponent {
         'Reportes operativos'
       ],
       icon: 'monitor',
-      image: '/images/c073dd70-07c3-4c39-b3cf-40b4c7d3d8e9.jpg',
+      image: '/servicios/monitoreo_tecnologico.jpeg',
       modalContent: {
         description: 'Monitoreo permanente de la operación mediante tecnología y personal certificado, garantizando trazabilidad, control y reacción inmediata ante cualquier novedad. Se integra seguimiento en tiempo real, comunicación constante y reportes operativos.',
         normative: [

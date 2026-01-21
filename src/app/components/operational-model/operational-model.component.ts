@@ -51,14 +51,14 @@ export class OperationalModelComponent implements AfterViewInit, OnDestroy {
       number: '04',
       title: 'Informes de Operación',
       description: 'Documentación completa y detallada de cada operación para trazabilidad y mejora continua',
-      image: '/images/edb2803d-3618-4c2c-b850-f919b5eed660.jpg',
+      image: '/modelo_operativo/informe_operaciones.jpeg',
       tooltip: 'Registro documentado de la operación, con trazabilidad, novedades, tiempos y evidencias para control interno y cumplimiento normativo.'
     },
     {
       number: '05',
       title: 'Retroalimentación',
       description: 'Análisis post-operación para identificar oportunidades de mejora y optimización de procesos',
-      image: '/images/8e5555f6-f3d3-4cf5-bd0e-24683651ec38.jpg',
+      image: '/modelo_operativo/retroalimentacion.jpeg',
       tooltip: 'Análisis posterior de cada servicio para optimizar procesos, fortalecer la seguridad y mejorar la eficiencia operativa del cliente.'
     }
   ]);

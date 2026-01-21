@@ -83,7 +83,7 @@ export class FeaturesComponent implements OnDestroy {
     },
     {
       icon: 'medical',
-      title: 'Acompañamiento Médico Técnico',
+      title: 'Asistencia Técnica en Salud',
       description: 'Servicio especializado para operaciones críticas y control psicofísico del conductor',
       colorClass: 'green',
       iconColorClass: 'text-gray-400',
