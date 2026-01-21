@@ -40,7 +40,7 @@ export class FeaturesComponent implements OnDestroy {
       colorClass: 'blue',
       iconColorClass: 'text-gray-400',
       borderColorClass: 'hover:border-gray-200',
-      image: '/images/8c36488b-487f-4f22-91f0-4ff992dfb1cd.jpg',
+      image: '/servicios/cargas_extradimensionadas.jpeg',
       modalContent: {
         description: 'ESTECOL brinda acompañamiento vial especializado para el transporte de cargas extradimensionadas y extrapesadas, garantizando seguridad, control operativo y cumplimiento normativo durante toda la ruta. Nuestro servicio contempla análisis previo del trayecto, coordinación con autoridades, escoltas viales certificadas y control permanente de riesgos asociados a dimensiones, peso y maniobrabilidad de la carga.',
         normative: [
@@ -64,7 +64,7 @@ export class FeaturesComponent implements OnDestroy {
       colorClass: 'red',
       iconColorClass: 'text-gray-400',
       borderColorClass: 'hover:border-gray-200',
-      image: '/images/a2fec391-3477-464e-b320-98e1c20f262f.jpg',
+      image: '/servicios/sustancias_criticas.jpeg',
       modalContent: {
         description: 'Acompañamiento especializado para el transporte de sustancias peligrosas, químicas, inflamables, tóxicas o de alto riesgo, asegurando el control del factor humano, el entorno y la carga. Incluye escoltas viales capacitadas, monitoreo constante y protocolos de reacción ante incidentes.',
         normative: [
@@ -88,7 +88,7 @@ export class FeaturesComponent implements OnDestroy {
       colorClass: 'green',
       iconColorClass: 'text-gray-400',
       borderColorClass: 'hover:border-gray-200',
-      image: '/images/a96b8fa7-56cf-4344-95b7-ca3fc339b7e0.jpg',
+      image: '/servicios/asistencia_medica.jpeg',
       modalContent: {
         description: 'ESTECOL integra un acompañante médico técnico para verificar y controlar la aptitud física y mental del conductor antes y durante la operación. Este servicio incluye pruebas de sustancias psicoactivas, evaluación de signos vitales y seguimiento preventivo en rutas críticas.',
         normative: [
@@ -111,7 +111,7 @@ export class FeaturesComponent implements OnDestroy {
       colorClass: 'purple',
       iconColorClass: 'text-gray-400',
       borderColorClass: 'hover:border-gray-200',
-      image: '/images/bfd4ac6b-7ccd-4568-8614-e2392879a190.jpg',
+      image: '/servicios/gestion_de_rutas_logisticas.jpeg',
       modalContent: {
         description: 'Planeación, análisis y control integral de rutas logísticas, enfocada en seguridad, eficiencia y cumplimiento normativo. Incluye identificación de puntos críticos, rutas alternas, evaluación de riesgos y coordinación operativa antes, durante y después del viaje.',
         normative: [
@@ -134,7 +134,7 @@ export class FeaturesComponent implements OnDestroy {
       colorClass: 'indigo',
       iconColorClass: 'text-gray-400',
       borderColorClass: 'hover:border-gray-200',
-      image: '/images/c073dd70-07c3-4c39-b3cf-40b4c7d3d8e9.jpg',
+      image: '/servicios/monitoreo_tecnologico.jpeg',
       modalContent: {
         description: 'Monitoreo permanente de la operación mediante tecnología y personal certificado, garantizando trazabilidad, control y reacción inmediata ante cualquier novedad. Se integra seguimiento en tiempo real, comunicación constante y reportes operativos.',
         normative: [

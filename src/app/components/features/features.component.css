@@ -3,6 +3,11 @@
   display: block;
 }
 
+/* Ajuste de posición para imágenes específicas */
+.image-adjust-top {
+  object-position: center 70% !important;
+}
+
 /* Modal overlay */
 .service-modal {
   position: fixed !important;
