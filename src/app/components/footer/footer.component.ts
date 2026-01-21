@@ -72,9 +72,9 @@ export class FooterComponent {
   ]);
 
   protected readonly socialLinks = signal([
-    { name: 'Facebook', icon: 'facebook', href: '#' },
-    { name: 'Twitter', icon: 'twitter', href: '#' },
+    { name: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=61565595647977' },
+    { name: 'Twitter', icon: 'twitter', href: 'https://x.com/ESTECOL_ltda' },
     { name: 'LinkedIn', icon: 'linkedin', href: '#' },
-    { name: 'Instagram', icon: 'instagram', href: '#' }
+    { name: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/estecolltda/' }
   ]);
 }
